@@ -8,7 +8,9 @@ def main():
     print("[2] Withdraw funds")
     print("[3] Deposit funds")
     print("[4] Check balance")
-    command = input()
+    print("--")
+    print("0 to exit a menu")
+    command = input("Choose option : ")
 
     if command == "1":
         create_card()
@@ -20,6 +22,8 @@ def main():
         check_card_info()
     elif command == "adminpass":
         print(card_list)
+        main()
+    else:
         main()
 
 def withdraw_funds():
