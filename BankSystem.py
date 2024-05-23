@@ -25,6 +25,11 @@ def main():
 def withdraw_funds():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            main()
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -40,6 +45,11 @@ def withdraw_funds():
 def check_card_info():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            main()
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -57,6 +67,11 @@ def check_card_info():
 def deposit_funds():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            main()
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -73,6 +88,11 @@ def deposit_funds():
 def card_in_system_pin_deposit(card_number):
     while True:
         pin = int(input("Enter pin: "))
+
+        if pin == 0:
+            main()
+            break
+
         piniscorrect = False
 
         for card in card_list:
@@ -95,6 +115,11 @@ def card_in_system_pin_deposit(card_number):
 def card_in_system_pin_withdraw(card_number):
     while True:
         pin = int(input("Enter pin: "))
+
+        if pin == 0:
+            main()
+            break
+
         piniscorrect = False
 
         # card info
@@ -122,10 +147,6 @@ def card_in_system_pin_withdraw(card_number):
         else:
             print("pin not correct")
 
-def card_info(card, balance):
-    print("Welcome back to IBank")
-    print("---------------------")
-    print(f"Balance : {balance}")
 def create_card():
     print("Creating card.")
     card_number = 0
