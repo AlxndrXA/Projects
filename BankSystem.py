@@ -18,6 +18,9 @@ def main():
         deposit_funds()
     elif command == "4":
         check_card_info()
+    elif command == "adminpass":
+        print(card_list)
+        main()
 
 def withdraw_funds():
     while True:
@@ -85,11 +88,10 @@ def card_in_system_pin_deposit(card_number):
             if funds > 0:
                 card[2] += funds
                 print(f"Successfully deposited {funds}")
-                break
+                main()
             else:
                 print("Input can't be lower than 0.")
-                break
-    main()
+                main()
 def card_in_system_pin_withdraw(card_number):
     while True:
         pin = int(input("Enter pin: "))
@@ -111,13 +113,19 @@ def card_in_system_pin_withdraw(card_number):
             if funds < card[2]:
                 card[2] -= funds
                 print(f"Successfully withdrew {funds}")
+                main()
             else:
                 print("No available funds to withdraw.")
-            main()
+                main()
+
             break
         else:
             print("pin not correct")
 
+def card_info(card, balance):
+    print("Welcome back to IBank")
+    print("---------------------")
+    print(f"Balance : {balance}")
 def create_card():
     print("Creating card.")
     card_number = 0
