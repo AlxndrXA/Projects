@@ -2,26 +2,14 @@ import random
 
 card_list = []
 
-def main():
-    print("Welcome to IBank")
-    print("[1] Create a card")
-    print("[2] Withdraw funds")
-    print("[3] Deposit funds")
-    print("[4] Check balance")
-    command = input()
-
-    if command == "1":
-        create_card()
-    elif command == "2":
-        withdraw_funds()
-    elif command == "3":
-        deposit_funds()
-    elif command == "4":
-        check_card_info()
 
 def withdraw_funds():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -34,9 +22,15 @@ def withdraw_funds():
             print("not in system")
             continue
 
+    main()
+
 def check_card_info():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -54,6 +48,10 @@ def check_card_info():
 def deposit_funds():
     while True:
         card_number = int(input("Enter your card number: "))
+
+        if card_number == 0:
+            break
+
         card_found = False
         for card in card_list:
             if card[0] == card_number:
@@ -70,6 +68,10 @@ def deposit_funds():
 def card_in_system_pin_deposit(card_number):
     while True:
         pin = int(input("Enter pin: "))
+
+        if pin == 0:
+            break
+
         piniscorrect = False
 
         for card in card_list:
@@ -93,6 +95,10 @@ def card_in_system_pin_deposit(card_number):
 def card_in_system_pin_withdraw(card_number):
     while True:
         pin = int(input("Enter pin: "))
+
+        if pin == 0:
+            break
+
         piniscorrect = False
 
         # card info
@@ -113,10 +119,11 @@ def card_in_system_pin_withdraw(card_number):
                 print(f"Successfully withdrew {funds}")
             else:
                 print("No available funds to withdraw.")
-            main()
+
             break
         else:
             print("pin not correct")
+    main()
 
 def create_card():
     print("Creating card.")
@@ -144,6 +151,30 @@ def create_card():
     print("Exiting...")
     exit = input("Click enter to continue.")
     main()
+
+def main():
+    print("Welcome to IBank")
+    print("[1] Create a card")
+    print("[2] Withdraw funds")
+    print("[3] Deposit funds")
+    print("[4] Check balance")
+    print("--")
+    print("0 to exit a menu")
+    command = input("Choose option : ")
+
+    if command == "1":
+        create_card()
+    elif command == "2":
+        withdraw_funds()
+    elif command == "3":
+        deposit_funds()
+    elif command == "4":
+        check_card_info()
+    elif command == "adminpass":
+        print(card_list)
+        main()
+    else:
+        main()
 
 if __name__ == '__main__':
     main()
