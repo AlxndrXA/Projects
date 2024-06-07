@@ -99,13 +99,13 @@ def main():
         main()
     elif command == '8':
         student_name = input("Student Name: ")
-        total_marks = 0
-        sum = 0
         if student_name in student_list:
-            total_marks = len(student_list[student_name]['Marks'])
-            for i in student_list[student_name]['Marks']:
-                sum += i
-        txtGreen(f"Final Score: {sum/total_marks:.2f}")
+            marks = student_list[student_name]['Marks']
+            total_marks = len(marks)
+            sum_marks = sum(marks)
+            txtGreen(f"Final Score: {sum_marks / total_marks:.2f}")
+        else:
+            print("\n Student Not Found")
         main()
 
 def txtGreen(skk): print("\033[92m {}\033[00m" .format(skk))
