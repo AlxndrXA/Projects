@@ -32,7 +32,6 @@ def student(v):
             txtRed("\n Student not found.")
 
     save_student_list(student_list, 'students.json')
-    main()
 
 # MARKS #
 
@@ -49,7 +48,6 @@ def mark(v):
     else:
         txtRed("\nStudent not found.")
     save_student_list(student_list, 'students.json')
-    main()
 
 def update_grade():
     student_name = input("Student Name: ")
@@ -59,7 +57,6 @@ def update_grade():
     else:
         txtRed("\n Student not found.")
     save_student_list(student_list, 'students.json')
-    main()
 def main():
     while True:
         txtGreen("\n  Student Management System")
