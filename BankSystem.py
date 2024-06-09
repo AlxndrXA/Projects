@@ -22,8 +22,6 @@ def withdraw_funds():
             print("not in system")
             continue
 
-    main()
-
 def check_card_info():
     while True:
         card_number = int(input("Enter your card number: "))
@@ -42,7 +40,6 @@ def check_card_info():
         else:
             print("not in system")
             continue
-    main()
 
 
 def deposit_funds():
@@ -63,7 +60,6 @@ def deposit_funds():
         else:
             print("not in system")
             continue
-    main()
 
 def card_in_system_pin_deposit(card_number):
     while True:
@@ -91,7 +87,6 @@ def card_in_system_pin_deposit(card_number):
             else:
                 print("Input can't be lower than 0.")
                 break
-    main()
 def card_in_system_pin_withdraw(card_number):
     while True:
         pin = int(input("Enter pin: "))
@@ -123,7 +118,6 @@ def card_in_system_pin_withdraw(card_number):
             break
         else:
             print("pin not correct")
-    main()
 
 def create_card():
     print("Creating card.")
@@ -150,31 +144,30 @@ def create_card():
     card_list.append([card_number,card_pin,0])
     print("Exiting...")
     exit = input("Click enter to continue.")
-    main()
 
 def main():
-    print("Welcome to IBank")
-    print("[1] Create a card")
-    print("[2] Withdraw funds")
-    print("[3] Deposit funds")
-    print("[4] Check balance")
-    print("--")
-    print("0 to exit a menu")
-    command = input("Choose option : ")
+    while True:
+        print("Welcome to IBank")
+        print("[1] Create a card")
+        print("[2] Withdraw funds")
+        print("[3] Deposit funds")
+        print("[4] Check balance")
+        print("--")
+        print("0 to exit a menu")
+        command = input("Choose option : ")
 
-    if command == "1":
-        create_card()
-    elif command == "2":
-        withdraw_funds()
-    elif command == "3":
-        deposit_funds()
-    elif command == "4":
-        check_card_info()
-    elif command == "adminpass":
-        print(card_list)
-        main()
-    else:
-        main()
+        if command == "1":
+            create_card()
+        elif command == "2":
+            withdraw_funds()
+        elif command == "3":
+            deposit_funds()
+        elif command == "4":
+            check_card_info()
+        elif command == "adminpass":
+            print(card_list)
+        elif command == "0":
+            break
 
 if __name__ == '__main__':
     main()
